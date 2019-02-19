@@ -1,0 +1,11 @@
+<launch>
+    <node pkg="odometry" type="odometry_node" name="right_position">
+        <remap from="position" to="right_position"/>
+        <remap from="/localization/encoder/hall_sensor" to="/localization/gpio/right_hall_sensor"/>
+    </node>
+    <node pkg="odometry" type="odometry_node" name="left_position">
+        <remap from="position" to="left_position"/>
+        <remap from="/localization/encoder/hall_sensor" to="/localization/gpio/left_hall_sensor"/>
+    </node>
+    <node pkg="average_position" type="average_position_node" name="average_position"/>
+</launch>
